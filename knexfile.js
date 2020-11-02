@@ -5,10 +5,10 @@ module.exports = {
 		filename: "./data/auth.db3",
 	},
 	migrations: {
-		directory: "./database/migrations",
+		directory: "./data/migrations",
 	},
 	seeds: {
-		directory: "./database/seeds",
+		directory: "./data/seeds",
 	},
 	pool: {
 		afterCreate: (conn, done) => {
