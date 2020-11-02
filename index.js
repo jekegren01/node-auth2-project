@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser")
 const helmet = require("helmet")
 const cors = require("cors")
 const session = require("express-session")
-// const usersRouter = require("./users/users-router")
+const usersRouter = require("./users/users-router")
 
 const server = express()
 const port = process.env.PORT || 5000
@@ -20,7 +20,7 @@ server.use(cookieParser())
 // 	secret: "keep it secret, keep it safe", // cryptographically sign the cookie
 // }))
 
-// server.use(usersRouter)
+server.use("/api", usersRouter)
 server.use((err, req, res, next) => {
 	console.log(err)
 	

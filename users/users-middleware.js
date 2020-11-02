@@ -1,6 +1,5 @@
 const { JsonWebTokenError } = require("jsonwebtoken")
 const jwt = require("jsonwebtoken")
-const roles = ["basic", "admin"]
 
 function restrict(role) {
 	return async (req, res, next) => {
