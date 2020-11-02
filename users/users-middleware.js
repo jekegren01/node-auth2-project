@@ -34,7 +34,7 @@ function restrict(role) {
 				}
 
 				
-				console.log(decoded)
+				// console.log(decoded)
 				//make the tokens decoded payload available to the other middleware
 				//functions or route handlers, incase we want to use it for something
 				req.token = decoded

@@ -5,7 +5,7 @@ const Users = require("./users-model")
 const { restrict } = require("./users-middleware")
 const router = express.Router();
 
-router.get("/users", restrict(), async (req, res) => {
+router.get("/users", restrict(), async (req, res, next) => {
     try {
         res.json(await Users.find())
     } catch(err) {
@@ -13,7 +13,7 @@ router.get("/users", restrict(), async (req, res) => {
     }
 })
 
-router.post("/login", async (req, res)=>{
+router.post("/login", async (req, res, next)=>{
     try {
         const { username, password } = req.body
 		const user = await Users.findByUsername(username)
@@ -48,7 +48,7 @@ router.post("/login", async (req, res)=>{
     }
 });
 
-router.post("/register", async (req, res)=>{
+router.post("/register", async (req, res, next)=>{
     try {
 
     } catch(err) {
