@@ -50,7 +50,22 @@ router.post("/login", async (req, res, next)=>{
 
 router.post("/register", async (req, res, next)=>{
     try {
+        const { username, password, department } = req.body
+        const user = await Users.findByUsername(username)
 
+        if (user) {
+			return res.status(409).json({
+				message: "Username is already taken",
+			})
+        }
+        
+        const newUser = await Users.add({
+            username,
+            department,
+            password: await bcrypt.hash(password, 14)
+        })
+
+        res.status(201).json(newUser)
     } catch(err) {
         next(err)
     }

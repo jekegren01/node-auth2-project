@@ -16,8 +16,16 @@ function findByUsername(username) {
 		.first("u.id", "u.username", "u.password", "u.department")
 }
 
+function findById(id) {
+    return db("users as u")
+        .select("u.id", "u.username")
+        .where("u.id", id)
+        .first()
+}
+
 module.exports = {
 	add,
 	find,
-	findByUsername,
+    findByUsername,
+    findById
 }
